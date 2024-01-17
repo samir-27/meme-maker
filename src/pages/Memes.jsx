@@ -17,9 +17,9 @@ const Memes = () => {
 
   return (
     <div className='bg-gray-100'>
-      <div className="container mx-auto grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-12">
+      <div className="container py-24 mx-auto grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-12">
         {memes.map((data) => (
-          <MemeCard data={data} />
+          <MemeCard key={data.id} data={data} />
         ))}
       </div>
     </div>
