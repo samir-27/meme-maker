@@ -38,7 +38,7 @@ const MemeEdit = () => {
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0">
               <button
                 onClick={addText}
-                className="bg-gray-600 px-4 py-2 rounded text-lg text-white m-2"
+                className="bg-gray-900 px-4 py-2 rounded text-lg text-white m-2"
               >
                 Add Text
               </button>
