@@ -29,44 +29,34 @@ const MemeEdit = () => {
   }, [id]);
 
   return (
-    <div className="flex flex-col items-center bg-gray-100 min-h-screen">
-      <div className="mt-12 w-full max-w-screen-lg">
+    <div className=" flex flex-col items-center">
+      <div className='mt-12'>
         {meme && (
-          <>
-            <div ref={memeRef} className="w-full px-5 mt-8 sm:mt-12">
-              <img
-                className="lg:max-w-128 md:w-128 max-h-128 w-auto h-auto object-contain mx-auto border-2 border-gray-600 mb-4"
-                src={meme.url}
-                alt={meme.name}
-              />
-              {Array(count).fill(0).map((e, index) => (
-                <Text key={index} />
-              ))}
+          <div ref={memeRef} className='lg:w-128 md:w-128 w-96 m-12 border-2 border-gray-6'>
+            <img className='w-full h-full object-contain' src={meme.url} alt={meme.name} />
+            {Array(count).fill(0).map((e, index) => <Text key={index} />)}
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0">
+              <button
+                onClick={addText}
+                className="bg-gray-600 px-4 py-2 rounded text-lg text-white m-2"
+              >
+                Add Text
+              </button>
+              <button
+                onClick={() => {
+                  exportComponentAsJPEG(memeRef);
+                }}
+                className="bg-gray-600 px-4 py-2 rounded text-lg text-white m-2"
+              >
+                Download
+              </button>
             </div>
-            <div className="sm:flex sm:flex-col sm:items-center sm:space-y-2 sm:mt-4">
-              <div className="sm:flex flex-row sm:justify-center sm:items-center sm:space-y-0 flex flex-col">
-                <button
-                  onClick={addText}
-                  className="bg-gray-600 px-4 py-2 rounded text-lg text-white m-2"
-                >
-                  Add Text
-                </button>
-                <button
-                  onClick={() => {
-                    exportComponentAsJPEG(memeRef);
-                  }}
-                  className="bg-gray-600 px-4 py-2 rounded text-lg text-white m-2"
-                >
-                  Download
-                </button>
-              </div>
-            </div>
-
-          </>
+          </div>
         )}
       </div>
     </div>
   );
+
 };
 
 export default MemeEdit;
